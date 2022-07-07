@@ -1,11 +1,23 @@
-﻿// Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+﻿// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 
-int[] array = new int[8];
-Random numRandom = new Random();
+// [3 7 22 2 78] -> 76
 
-Console.Write("Вот ваш массив, полюбуйтесь: ");
-for (int i = 0; i < array.Length; i++)
+double[] numberArray = new double[10];
+Random randomNumber = new Random();
+int size = numberArray.Length;
+double maxNumber = 0;
+double minNumber = 0;
+
+Console.Write("Массив: ");
+for (int i = 0; i < size; i++)
 {
-    array[i] = numRandom.Next(0, 1000);
-    Console.Write($" {array[i]}");
+    numberArray[i] = randomNumber.Next(-100, 100) + randomNumber.NextDouble();
+
+    if (numberArray[i] > maxNumber) maxNumber = numberArray[i];
+    if (numberArray[i] < minNumber) minNumber = numberArray[i];
+
 }
+Console.WriteLine($"[{String.Join("; ", numberArray)}]");
+Console.WriteLine($" Максимальное {maxNumber}");
+Console.WriteLine($" Минимальное {minNumber}");
+Console.WriteLine($"Разница, между максимальным и минимальным элементов массива {maxNumber - minNumber}");
