@@ -1,10 +1,24 @@
-﻿// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+﻿// *Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
+//  Напишите программу, которая покажет количество чётных чисел в массиве.
 
-Console.WriteLine("Введи число раз: ");
-int number1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введи число два, если хочешь магию: ");
-int number2 = Convert.ToInt32(Console.ReadLine());
+// [345, 897, 568, 234] -> 2
 
+int[] array = new int[10];
 
-double result = Math.Pow(number1,number2);
-Console.WriteLine($"Вжух! число {number1} в степени {number2} - это {result}");
+int size = array.Length;
+
+Random numRandom = new Random();
+int count = 0;
+
+Console.WriteLine("Массив: ");
+for (int i = 0; i < size; i++)
+{
+    array[i] = numRandom.Next(100, 1000);
+    Console.Write($" {array[i]}");
+    if ((array[i]%2) == 0)
+    {
+        count++;
+    }
+}
+Console.WriteLine(" ");
+Console.WriteLine($"Чётных чисел в массиве {count} шт.");
