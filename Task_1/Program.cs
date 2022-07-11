@@ -15,6 +15,6 @@ for (int i = 0; i < m; i++)
     if (fewNumbers[i] > 0) count += 1;
 }
 
-Console.WriteLine($"Xисел больше 0 тобой введено: {count} ");
+Console.WriteLine($"Чисел больше 0 тобой введено: {count} ");
 
 
