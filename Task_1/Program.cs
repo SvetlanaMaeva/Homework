@@ -1,24 +1,20 @@
-﻿// *Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
-//  Напишите программу, которая покажет количество чётных чисел в массиве.
+﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
 
-// [345, 897, 568, 234] -> 2
+// 0, 7, 8, -2, -2 -> 2
+// 1, -7, 567, 89, 223-> 3
 
-int[] array = new int[10];
-
-int size = array.Length;
-
-Random numRandom = new Random();
+Console.Write($"Сколько чисел ты собираешься вводить?  ");
+int m = Convert.ToInt32(Console.ReadLine());
+int[] fewNumbers = new int[m];
 int count = 0;
 
-Console.WriteLine("Массив: ");
-for (int i = 0; i < size; i++)
+for (int i = 0; i < m; i++)
 {
-    array[i] = numRandom.Next(100, 1000);
-    Console.Write($" {array[i]}");
-    if ((array[i]%2) == 0)
-    {
-        count++;
-    }
+    Console.Write($"Вводи {i + 1} число: ");
+    fewNumbers[i] = Convert.ToInt32(Console.ReadLine());
+    if (fewNumbers[i] > 0) count += 1;
 }
-Console.WriteLine(" ");
-Console.WriteLine($"Чётных чисел в массиве {count} шт.");
+
+Console.WriteLine($"Xисел больше 0 тобой введено: {count} ");
+
+
