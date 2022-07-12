@@ -25,5 +25,5 @@ else if (((b1 == b2) && (k1 != k2)) || ((b1 != b2) && (k1 == k2)))
 }
 else
 {
-    System.Console.WriteLine($"Точка пересечения: ({(-b1 * k2 + k1 * b2)/(k1-k2)}; {x})");
+    System.Console.WriteLine($"Точка пересечения: ({x}; {(-b1 * k2 + k1 * b2)/(k1-k2)})");
 }
