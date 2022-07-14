@@ -1,29 +1,45 @@
-﻿// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
-// значения b1, k1, b2 и k2 задаются пользователем.
+﻿// Задача 50: Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
 
-// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+// 17 -> такого числа в массиве нет
 
-System.Console.WriteLine("Давай, для начала, зададим числа по условию. ");
-System.Console.Write("b1 = ");
-double b1 = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("k1 = ");
-double k1 = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("b2 = ");
-double b2 = Convert.ToInt32(Console.ReadLine());
-System.Console.Write("k2 = ");
-double k2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введи количество строчек: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введи количество столбцов: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Какое число будем проверять? ");
+int verificationNumber = Convert.ToInt32(Console.ReadLine());
 
-double x = (b2 - b1) / (k1 - k2);
+int[,] matrix = new int[rows, columns];
 
-if ((b1 == b2) && (k1 == k2))
+for (int i = 0; i < matrix.GetLength(0); i++)
 {
-    Console.WriteLine($"Прямые совпадают");
+
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        matrix[i, j] = new Random().Next(1, 11);
+        Console.Write(matrix[i, j] + "\t");
+    }
+    Console.WriteLine();
 }
-else if (((b1 == b2) && (k1 != k2)) || ((b1 != b2) && (k1 == k2)))
+
+void CheckFor(int[,] array)
 {
-    Console.WriteLine($"Прямые параллельны");
+    bool existsElement = false;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (matrix[i, j] == verificationNumber)
+            {
+                Console.WriteLine($"Позиция введённого элемента {verificationNumber} -> matrix[{i},{j}]");
+                existsElement = true;
+            }
+        }
+    }
+    if (existsElement == false) Console.WriteLine("Такого элемента нет :(");
 }
-else
-{
-    System.Console.WriteLine($"Точка пересечения: ({x}; {(-b1 * k2 + k1 * b2)/(k1-k2)})");
-}
+CheckFor(matrix);
