@@ -1,20 +1,21 @@
-﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+﻿// Задача 47: Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+// m = 3, n = 4.
+// 0,5 7 -2 -0,2
+// 1 -3,3 8 -9,9
+// 8 7,8 -7,1 9
+Console.WriteLine("Введи количество строчек: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введи количество столбцов: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+double[,] matrix = new double[rows, columns];
 
-// 0, 7, 8, -2, -2 -> 2
-// 1, -7, 567, 89, 223-> 3
-
-Console.Write($"Сколько чисел ты собираешься вводить?  ");
-int m = Convert.ToInt32(Console.ReadLine());
-int[] fewNumbers = new int[m];
-int count = 0;
-
-for (int i = 0; i < m; i++)
+for (int i = 0; i < matrix.GetLength(0); i++)
 {
-    Console.Write($"Вводи {i + 1} число: ");
-    fewNumbers[i] = Convert.ToInt32(Console.ReadLine());
-    if (fewNumbers[i] > 0) count += 1;
+
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+        matrix[i, j] = new Random().NextDouble()*20-10;
+        Console.Write(matrix[i, j] + "\t");
+    }
+    Console.WriteLine();
 }
-
-Console.WriteLine($"Чисел больше 0 тобой введено: {count} ");
-
-
