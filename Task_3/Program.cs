@@ -23,3 +23,22 @@ for (int i = 0; i < matrix.GetLength(0); i++)
     }
     Console.WriteLine();
 }
+
+void Average(int[,] array)
+{
+    double result = 0;
+    Console.WriteLine("Среднее арифметическое каждого столбца: ");
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        result = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            result = (array[i, j] + result) ;
+
+        }
+            Console.Write(result/array.GetLength(0) + "; ");
+    }
+
+}
+Average(matrix);
+
