@@ -26,7 +26,7 @@ for (int i = 0; i < matrix.GetLength(0); i++)
     Console.WriteLine();
 }
 
-void CheckFor(int[,] array)
+void CheckForavAilability(int[,] array)
 {
     bool existsElement = false;
     for (int i = 0; i < array.GetLength(0); i++)
@@ -42,4 +42,4 @@ void CheckFor(int[,] array)
     }
     if (existsElement == false) Console.WriteLine("Такого элемента нет :(");
 }
-CheckFor(matrix);
+CheckForavAilability(matrix);
