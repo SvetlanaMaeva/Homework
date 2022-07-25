@@ -1,21 +1,17 @@
-﻿// Задача 47: Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
-// m = 3, n = 4.
-// 0,5 7 -2 -0,2
-// 1 -3,3 8 -9,9
-// 8 7,8 -7,1 9
-Console.WriteLine("Введи количество строчек: ");
-int rows = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введи количество столбцов: ");
-int columns = Convert.ToInt32(Console.ReadLine());
-double[,] matrix = new double[rows, columns];
+﻿// Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
 
-for (int i = 0; i < matrix.GetLength(0); i++)
+// M = 1; N = 5. -> ""1, 2, 3, 4, 5""
+
+// M = 4; N = 8. -> ""4, 6, 7, 8""
+
+Console.WriteLine("Введи начальное число: ");
+int M = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введи конечное число: ");
+int N = Convert.ToInt32(Console.ReadLine());
+
+string PrintNumber(int start, int end)
 {
-
-    for (int j = 0; j < matrix.GetLength(1); j++)
-    {
-        matrix[i, j] = new Random().NextDouble()*20-10;
-        Console.Write(matrix[i, j] + "\t");
-    }
-    Console.WriteLine();
+    if (start == end) return start.ToString();
+    return (start + ", " + PrintNumber(start+1, end));
 }
+Console.WriteLine(PrintNumber(M, N));
