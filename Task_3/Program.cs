@@ -1,44 +1,16 @@
-﻿// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+﻿// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+// m = 2, n = 3 -> A(m,n) = 29
 
-Console.WriteLine("Введи количество строчек: ");
-int rows = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введи количество столбцов: ");
-int columns = Convert.ToInt32(Console.ReadLine());
 
-int[,] matrix = new int[rows, columns];
+int m = 2; 
+int n = 3;
 
-for (int i = 0; i < matrix.GetLength(0); i++)
-{
-
-    for (int j = 0; j < matrix.GetLength(1); j++)
+ int A(int m, int n)
     {
-        matrix[i, j] = new Random().Next(1, 11);
-        Console.Write(matrix[i, j] + "\t");
+        if (m == 0) return n + 1;
+        if (n == 0) return A(m - 1, 1);
+        return A(m - 1, A(m, n - 1));
     }
-    Console.WriteLine();
-}
-
-void Average(int[,] array)
-{
-    double result = 0;
-    Console.WriteLine("Среднее арифметическое каждого столбца: ");
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        result = 0;
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            result = (array[i, j] + result) ;
-
-        }
-            Console.Write(result/array.GetLength(0) + "; ");
-    }
-
-}
-Average(matrix);
-
+Console.WriteLine(A(n, m));
+  
